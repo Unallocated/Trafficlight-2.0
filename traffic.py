@@ -14,6 +14,7 @@ pins = {
    4 : {'name' : 'yellow', 'state' : GPIO.LOW}
    }
 
+
 # Set each pin as an output and make it low:
 for pin in pins:
    GPIO.setup(pin, GPIO.OUT)
@@ -25,7 +26,7 @@ def humanize_pin_state(pins):
             pin_data['state'] = 'off'
         else:
             pin_data['state'] = 'on'
-    pins
+    return pins
 
 @app.route("/")
 def main():
