@@ -1,0 +1,29 @@
+.circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+#red-1{
+  background: #f22;
+}
+
+#red-0{
+  background: #600000;
+} 
+
+#yellow-1{
+  background: #ff0;
+}
+
+#yellow-0{
+  background: #606000;
+}
+
+#green-1{
+  background: #0f0;
+}
+
+#green-0{
+  background: #006000;
+}

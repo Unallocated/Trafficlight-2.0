@@ -1,25 +1,33 @@
-<!DOCTYPE html>
+<html lang="en">
 <head>
    <title>Traffic Light</title>
    <!-- Latest compiled and minified CSS -->
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-   <!-- Optional theme -->
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-   <!-- Latest compiled and minified JavaScript -->
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+   <link rel="stylesheet" href="{{ url_for('static', filename='styles/mini-default.css') }}">
+   <link rel="stylesheet" href="{{ url_for('static', filename='styles/custom.css') }}">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
-   <h1>Traffic Light</h1>
+<div class="container">
+   <div class="row">
+      <div class="col-md-2">
+         <h1>Traffic Light</h1>
+      </div>
+   </div>
    {% for pin in pins %}
-   <h2>{{ pins[pin].name }}
-   {% if pins[pin].state == true %}
-      is currently <strong>on</strong></h2><div class="row"><div class="col-xl-2">
-      <a href="/{{pin}}/off" class="btn btn-block btn-lg btn-primary" role="button">On</a></div></div>
-   {% else %}
-      is currently <strong>off</strong></h2><div class="row"><div class="col-xl-2">
-      <a href="/{{pin}}/on" class="btn btn-block btn-lg btn-default" role="button">Off</a></div></div>
-   {% endif %}
+      <div class="row">
+         <div class="col-md-2">
+            <div class="circle" id="{{pins[pin].name}}-{{pins[pin].state}}"></div>
+         </div>
+         <div class="col-md-3">
+           {% if pins[pin].state == true %}
+              <a href="/{{pin}}/off" class="button" role="button">Turn Off</a>
+           {% else %}
+              <a href="/{{pin}}/on" class="button" role="button">Turn On</a>
+           {% endif %}
+         </div>
+      </div>
    {% endfor %}
+</div>
 </body>
 </html>
