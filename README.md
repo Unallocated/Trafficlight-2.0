@@ -1,6 +1,4 @@
 # Trafficlight-2.0
 The new traffic light controller. Powered by &amp; Rpi zero w and flask
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/master
+Made by flay, made better by corey, buddy, and magikid
