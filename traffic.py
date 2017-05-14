@@ -19,6 +19,14 @@ for pin in pins:
    GPIO.setup(pin, GPIO.OUT)
    GPIO.output(pin, GPIO.LOW)
 
+def humanize_pin_state(pins):
+    for pin_num, pin_data in pins.items():
+        if pin_data['state'] == GPIO.LOW:
+            pin_data['state'] = 'off'
+        else:
+            pin_data['state'] = 'on'
+    pins
+
 @app.route("/")
 def main():
    # For each pin, read the pin state and store it in the pins dictionary:
@@ -26,7 +34,7 @@ def main():
       pins[pin]['state'] = GPIO.input(pin)
    # Put the pin dictionary into the template data dictionary:
    templateData = {
-      'pins' : pins
+      'pins' : humanize_pin_state(pins)
       }
    # Pass the template data into the template main.html and return it to the user
    return render_template('main.html', **templateData)

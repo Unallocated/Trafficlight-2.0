@@ -4,26 +4,26 @@
   border-radius: 50%;
 }
 
-#red-1{
+#red-on{
   background: #f22;
 }
 
-#red-0{
+#red-off{
   background: #600000;
 } 
 
-#yellow-1{
+#yellow-on{
   background: #ff0;
 }
 
-#yellow-0{
+#yellow-off{
   background: #606000;
 }
 
-#green-1{
+#green-on{
   background: #0f0;
 }
 
-#green-0{
+#green-off{
   background: #006000;
 }
