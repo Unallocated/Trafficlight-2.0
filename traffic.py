@@ -10,8 +10,8 @@ GPIO.setmode(GPIO.BCM)
 # Create a dictionary called pins to store the pin number, name, and pin state:
 pins = {
    2 : {'name' : 'red', 'state' : GPIO.LOW},
-   4 : {'name' : 'yellow', 'state' : GPIO.LOW},
-   3 : {'name' : 'green', 'state' : GPIO.LOW},
+   3 : {'name' : 'yellow', 'state' : GPIO.LOW},
+   4 : {'name' : 'green', 'state' : GPIO.LOW},
    }
 
 
