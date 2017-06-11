@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python2
 print('script start')
 import RPi.GPIO as GPIO
 import time
@@ -26,7 +26,7 @@ def light_on(color):
 	for i in pins:
 		if pins[i]['name'] == color:
 			GPIO.output(i, GPIO.HIGH)	
-			time.sleep(.1)
+			time.sleep(.19)
 			GPIO.output(i, GPIO.LOW)
 
 def sequence(seq):

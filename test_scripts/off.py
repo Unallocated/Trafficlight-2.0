@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python2
 print('script start')
 import RPi.GPIO as GPIO
 import time
