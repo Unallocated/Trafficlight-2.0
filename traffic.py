@@ -1,7 +1,8 @@
 #!/usr/bin/python2
 import RPi.GPIO as GPIO
 from flask import Flask, render_template, request
-import random
+from time import sleep
+from random import randint
 
 app = Flask(__name__)
 
@@ -77,6 +78,40 @@ def action(changePin, action):
 
    return render_template('main.html', **templateData)
 
+@app.route("/rager")
+def partyHard(): #Add untested partyHard mode
+    countDown()
+    sleep(.25)
+    iterations, max_iterations, prev = 0, 5, 0
+    while True:
+        if iterations < max_iterations: iterations = iterations + 1
+        else: break
+        prev = rager(randint(2,4), prev)
+        sleep(.5)
+    return render_template('main.html', **templateData)
+
+
+def blinkyBlink(pin):
+    GPIO.output(pin, GPIO.high)
+    GPIO.output(pin, GPIO.low)
+
+def goLow():
+    for i in pins: GPIO.output(i, GPIO.low)
+
+def countDown():
+    goLow()
+    sleep(.25)
+    for i in pins:
+        for t in range(0,3):
+        GPIO.output(i, GPIO.high)
+        sleep(.75)
+        GPIO.output(i, GPIO.low)
+
+def rager(curr, prev):
+    for i in range(1,randint(4,16)):
+        curr = curr if curr != prev else randint(2,4) #give it a second shot of being something else for a little more fun.
+        blinkyBlink(randint(2,5))
+    return curr
 
 if __name__ == "__main__":
    app.run(host='0.0.0.0', port=80, debug=True)
