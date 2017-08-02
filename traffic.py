@@ -110,7 +110,7 @@ def countDown():
 def rager(curr, prev):
     for i in range(1,randint(4,16)):
         curr = curr if curr != prev else randint(2,4) #give it a second shot of being something else for a little more fun.
-        blinkyBlink(randint(2,5))
+        blinkyBlink(curr)
     return curr
 
 if __name__ == "__main__":
