@@ -1,0 +1,10 @@
+[Unit]
+Description=Traffic Light Service
+ 
+[Service]
+ExecStart=/home/pi/Trafficlight-2.0/traffic.py
+StandardOutput=null
+ 
+[Install]
+WantedBy=multi-user.target
+Alias=trafficlight.service

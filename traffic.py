@@ -103,9 +103,9 @@ def countDown():
     sleep(.25)
     for i in pins:
         for t in range(0,3):
-        GPIO.output(i, GPIO.high)
-        sleep(.75)
-        GPIO.output(i, GPIO.low)
+            GPIO.output(i, GPIO.high)
+            sleep(.75)
+            GPIO.output(i, GPIO.low)
 
 def rager(curr, prev):
     for i in range(1,randint(4,16)):
