@@ -90,6 +90,10 @@ def partyHard(): #Add untested partyHard mode
       #   prev = rager(randint(2,4), prev)
         prev = rager(choice(list(pins.keys())), prev)
         sleep(.5)
+    templateData = {
+      # 'message' : message,
+      'pins' : humanize_pin_state(pins)
+    }
     return render_template('main.html', **templateData)
 
 
