@@ -1,4 +1,4 @@
-#!/usr/bin/python2
+#!/usr/bin/python3
 import RPi.GPIO as GPIO
 from flask import Flask, render_template, request
 from time import sleep
@@ -62,9 +62,9 @@ def action(changePin, action):
       GPIO.output(changePin, not GPIO.input(changePin))
       message = "Toggled " + deviceName + "."
    if action == "party":
-	for i in range(1,20):
-      		GPIO.output(changePin, GPIO.HIGH)
-      		message = "Turned " + deviceName + " on."
+      for i in range(1,20):
+         GPIO.output(changePin, GPIO.HIGH)
+         message = "Turned " + deviceName + " on."
 
    # For each pin, read the pin state and store it in the pins dictionary:
    for pin in pins:
