@@ -79,17 +79,12 @@ def action(changePin, action):
 
    return render_template('main.html', **templateData)
 
-@app.route("/rager")
-def partyHard(): #Add untested partyHard mode
+@app.route("/rager/iterations")
+def partyHard(iterations = 5): #Add untested partyHard mode
     countDown()
-    sleep(.25)
-    iterations, max_iterations, prev = 0, 5, 0
-    while True:
-        if iterations < max_iterations: iterations = iterations + 1
-        else: break
-      #   prev = rager(randint(2,4), prev)
-        prev = rager(choice(list(pins.keys())), prev)
-        sleep(.5)
+    sleep(1)
+    for i in range(iterations):
+        blinkyBlink(choice(list(pins.keys())))
     templateData = {
       # 'message' : message,
       'pins' : humanize_pin_state(pins)
@@ -99,6 +94,7 @@ def partyHard(): #Add untested partyHard mode
 
 def blinkyBlink(pin):
     GPIO.output(pin, GPIO.HIGH)
+    sleep(0.5)
     GPIO.output(pin, GPIO.LOW)
 
 def goLow():
