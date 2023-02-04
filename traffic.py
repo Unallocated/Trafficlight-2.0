@@ -83,6 +83,10 @@ def action(changePin, action):
 def partyHard(iterations = 5): #Add untested partyHard mode
     countDown()
     sleep(1)
+    try:
+      iterations = int(iterations)
+    except:
+      iterations = 5
     for i in range(iterations):
         blinkyBlink(choice(list(pins.keys())))
     templateData = {
