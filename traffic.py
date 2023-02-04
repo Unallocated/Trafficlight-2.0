@@ -79,7 +79,7 @@ def action(changePin, action):
 
    return render_template('main.html', **templateData)
 
-@app.route("/rager/iterations")
+@app.route("/rager/<iterations>")
 def partyHard(iterations = 5): #Add untested partyHard mode
     countDown()
     sleep(1)
