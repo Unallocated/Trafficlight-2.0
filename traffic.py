@@ -43,7 +43,7 @@ def main():
    return render_template('main.html', **templateData)
 
 # The function below is executed when someone requests a URL with the pin number and action in it:
-@app.route("/<changePin>/<action>")
+@app.route("/toggle/<changePin>/<action>")
 def action(changePin, action):
    # Convert the pin from the URL into an integer:
    changePin = int(changePin)

@@ -21,9 +21,9 @@
          </div>
          <div class="col-md-3">
            {% if pins[pin].state == 'on' %}
-              <a href="/{{pin}}/off" class="button" role="button">Turn Off</a>
+              <a href="/toggle/{{pin}}/off" class="button" role="button">Turn Off</a>
            {% else %}
-              <a href="/{{pin}}/on" class="button" role="button">Turn On</a>
+              <a href="/toggle/{{pin}}/on" class="button" role="button">Turn On</a>
            {% endif %}
          </div>
       </div>
