@@ -79,6 +79,7 @@ def action(changePin, action):
 
    return render_template('main.html', **templateData)
 
+@app.route("/rager/")
 @app.route("/rager/<iterations>")
 def partyHard(iterations = 5): #Add untested partyHard mode
     countDown()
@@ -98,8 +99,9 @@ def partyHard(iterations = 5): #Add untested partyHard mode
 
 def blinkyBlink(pin):
     GPIO.output(pin, GPIO.HIGH)
-    sleep(0.5)
+    sleep(0.25)
     GPIO.output(pin, GPIO.LOW)
+    sleep(0.25)
 
 def goLow():
     for i in pins: GPIO.output(i, GPIO.LOW)
