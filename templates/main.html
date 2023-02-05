@@ -14,16 +14,17 @@
          <h1>Traffic Light</h1>
       </div>
    </div>
-   {% for pin in pins %}
+   {% for name, values in pins.items() %}
+   {% state = 'on' if values[1] == GPIO.HIGH else 'off' %}
       <div class="row">
          <div class="col-md-1">
-            <div class="circle" id="{{pins[pin].name}}-{{pins[pin].state}}"></div>
+            <div class="circle" id="{{name}}-{{state}}"></div>
          </div>
          <div class="col-md-3">
-           {% if pins[pin].state == 'on' %}
-              <a href="/toggle/{{pin}}/off" class="button" role="button">Turn Off</a>
+           {% if state == 'on' %}
+              <a href="/toggle/{{name}}/off" class="button" role="button">Turn Off</a>
            {% else %}
-              <a href="/toggle/{{pin}}/on" class="button" role="button">Turn On</a>
+              <a href="/toggle/{{name}}/on" class="button" role="button">Turn On</a>
            {% endif %}
          </div>
       </div>
