@@ -89,7 +89,8 @@ def partyHard(iterations = 5): #Add untested partyHard mode
     except:
       iterations = 5
     for i in range(iterations):
-        blinkyBlink(choice(list(pins.keys())))
+        pin = choice(list(pins.keys()))
+        blinkyBlink(pin)
     templateData = {
       # 'message' : message,
       'pins' : humanize_pin_state(pins)
