@@ -72,6 +72,7 @@ def action(color, action):
     if action == "party":
         for i in range(1,20):
             blinkyBlink(changePin)
+        message = "Partied Hard"
 
     getPinState()
 
