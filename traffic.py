@@ -28,20 +28,21 @@ for pin, state in pins.values():
     GPIO.setup(pin, GPIO.OUT)
     GPIO.output(pin, GPIO.LOW)
 
-# def humanize_pin_state(pins):
-#     for pin_num, pin_state in pins.values():
-#         if pin_state == GPIO.LOW:
-#             pin_data['state'] = 'off'
-#         else:
-#             pin_data['state'] = 'on'
-#     return pins
+def humanize_pin_state(pins):
+    for name, values in pins.items():
+        pin_state = values[1]
+        if pin_state == GPIO.HIGH:
+            pins[name][1] = 'on'
+        else:
+            pins[name][1] = 'off'
+    return pins
 
 @app.route("/")
 def main():
     getPinState()
     # Put the pin dictionary into the template data dictionary:
     templateData = {
-        'pins' : pins
+        'pins' : humanize_pin_state(pins)
         }
     # Pass the template data into the template main.html and return it to the user
     return render_template('main.html', **templateData)
@@ -77,7 +78,7 @@ def action(color, action):
     # Along with the pin dictionary, put the message into the template data dictionary:
     templateData = {
         'message' : message,
-        'pins' : pins
+        'pins' : humanize_pin_state(pins)
     }
 
     return render_template('main.html', **templateData)
@@ -97,7 +98,7 @@ def partyHard(iterations = 5): #Add untested partyHard mode
         blinkyBlink(pin)
     templateData = {
         # 'message' : message,
-        'pins' : pins
+        'pins' : humanize_pin_state(pins)
     }
     return render_template('main.html', **templateData)
 

@@ -15,13 +15,12 @@
       </div>
    </div>
    {% for name, values in pins.items() %}
-   {% state = 'on' if values[1] == GPIO.HIGH else 'off' %}
       <div class="row">
          <div class="col-md-1">
             <div class="circle" id="{{name}}-{{state}}"></div>
          </div>
          <div class="col-md-3">
-           {% if state == 'on' %}
+           {% if values[1] == 'on' %}
               <a href="/toggle/{{name}}/off" class="button" role="button">Turn Off</a>
            {% else %}
               <a href="/toggle/{{name}}/on" class="button" role="button">Turn On</a>
