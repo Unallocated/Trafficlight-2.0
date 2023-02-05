@@ -114,13 +114,13 @@ def blinkyBlink(pin):
     sleep(0.25)
 
 def goLow():
-    for pin, state in pins: 
+    for pin, state in pins.values(): 
         GPIO.output(pin, GPIO.LOW)
 
 def countDown():
     goLow()
     sleep(.25)
-    for pin, state in pins:
+    for pin, state in pins.values():
         GPIO.output(pin, GPIO.HIGH)
         sleep(1)
         GPIO.output(pin, GPIO.LOW)

@@ -17,7 +17,7 @@
    {% for name, values in pins.items() %}
       <div class="row">
          <div class="col-md-1">
-            <div class="circle" id="{{name}}-{{state}}"></div>
+            <div class="circle" id="{{name}}-{{values[1]}}"></div>
          </div>
          <div class="col-md-3">
            {% if values[1] == 'on' %}
